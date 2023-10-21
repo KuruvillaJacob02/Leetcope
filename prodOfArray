@@ -1,0 +1,11 @@
+class Solution(object):
+    def productExceptSelf(self,nums):
+        leftVal = 1
+        rightVal = 1
+        ans = [1] * len(nums)
+        for i in range(len(nums)):
+            ans[i] *= leftVal
+            leftVal *= nums[i]
+            ans[len(nums)-1-i] *= rightVal
+            rightVal *= nums[len(nums)-1-i]
+        return ans
